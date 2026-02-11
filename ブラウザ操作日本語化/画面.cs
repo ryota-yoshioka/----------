@@ -12,14 +12,14 @@ public class 画面
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    public 画面(ブラウザ 親ブラウザ)
+    public 画面(画面インターフェース インターフェース)
     {
-        this.インターフェース = 親ブラウザ.ドライバ;
+        this.インターフェース = インターフェース;
     }
 
-    public 画面(ブラウザ 親ブラウザ, string url)
+    public 画面(画面インターフェース インターフェース, string url)
     {
-        this.インターフェース = 親ブラウザ.ドライバ;
+        this.インターフェース = インターフェース;
         this.インターフェース.ナビゲートする(url);
     }
 
@@ -28,15 +28,15 @@ public class 画面
     /// </summary>
     public String タイトル => インターフェース.タイトル;
 
-    public Web要素 Idで要素を探す(string id)
+    public 画面要素インターフェース Idで要素を探す(string id)
     {
         return インターフェース.Idで要素を探す(id);
     }
-    public Web要素 Nameで要素を探す(string name)
+    public 画面要素インターフェース Nameで要素を探す(string name)
     {
         return インターフェース.Nameで要素を探す(name);
     }
-    public Web要素 TagNameで要素を探す(string tagName)
+    public 画面要素インターフェース TagNameで要素を探す(string tagName)
     {
         return インターフェース.TagNameで要素を探す(tagName);
     }

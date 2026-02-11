@@ -11,7 +11,7 @@ namespace ブラウザ操作日本語化;
 /// <param name="by">アンカーのBy</param>
 public class アンカー : フォーム要素
 {
-    private アンカー(Web要素 要素) : base(要素)
+    private アンカー(画面要素インターフェース 要素) : base(要素)
     {
     }
 

@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 
 namespace ブラウザ操作日本語化;
 
-public class Webドライバ : 画面インターフェース
+public class Webドライバ : ドライバーインターフェース, 画面インターフェース
 {
     private readonly IWebDriver ドライバ;
 
@@ -11,6 +11,7 @@ public class Webドライバ : 画面インターフェース
         this.ドライバ = ドライバ;
     }
 
+    public 画面インターフェース 先頭画面 => this;
     public String タイトル => ドライバ.Title;
 
     public void 終了する()
@@ -31,15 +32,15 @@ public class Webドライバ : 画面インターフェース
     // public abstract void 戻る();
     // public abstract void 進む();
     // public abstract void スクリーンショットを保存する(string ファイルパス);
-    public Web要素 Idで要素を探す(string id)
+    public 画面要素インターフェース Idで要素を探す(string id)
     {
         return new Web要素(ドライバ.FindElement(By.Id(id)));
     }
-    public Web要素 Nameで要素を探す(string name)
+    public 画面要素インターフェース Nameで要素を探す(string name)
     {
         return new Web要素(ドライバ.FindElement(By.Name(name)));
     }
-    public Web要素 TagNameで要素を探す(string tagName)
+    public 画面要素インターフェース TagNameで要素を探す(string tagName)
     {
         return new Web要素(ドライバ.FindElement(By.TagName(tagName)));
     }

@@ -11,7 +11,7 @@ namespace ブラウザ操作日本語化;
 /// <param name="by">ボタンのBy</param>
 public class ボタン : フォーム要素
 {
-    private ボタン(Web要素 要素) : base(要素)
+    private ボタン(画面要素インターフェース 要素) : base(要素)
     {
     }
     public static ボタン ById(画面 親画面, string id)

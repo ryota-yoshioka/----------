@@ -11,7 +11,7 @@ namespace ブラウザ操作日本語化;
 /// <param name="by">ラジオボタンのBy</param>
 public class ラジオボタン : フォーム要素
 {
-    private ラジオボタン(Web要素 要素) : base(要素)
+    private ラジオボタン(画面要素インターフェース 要素) : base(要素)
     {
     }
 

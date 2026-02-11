@@ -2,16 +2,17 @@ namespace ブラウザ操作日本語化;
 
 public abstract class ブラウザ
 {
-    public Webドライバ ドライバ;
+    public ドライバーインターフェース ドライバ;
 
-    public ブラウザ(Webドライバ ドライバ)
+    public ブラウザ(ドライバーインターフェース ドライバ)
     {
         this.ドライバ = ドライバ;
     }
 
+    public 画面インターフェース 先頭画面 => ドライバ.先頭画面;
     public void 閉じる()
     {
-        ドライバ?.終了する();
+        ドライバ.終了する();
     }
 
     /// <summary>

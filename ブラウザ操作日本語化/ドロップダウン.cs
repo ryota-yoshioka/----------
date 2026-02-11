@@ -10,7 +10,7 @@ namespace ブラウザ操作日本語化;
 /// <param name="by">ドロップダウンのBy</param>
 public class ドロップダウン : フォーム要素
 {
-    private ドロップダウン(Web要素 要素) : base(要素)
+    private ドロップダウン(画面要素インターフェース 要素) : base(要素)
     {
     }
     public static ドロップダウン ById(画面 親画面, string id)

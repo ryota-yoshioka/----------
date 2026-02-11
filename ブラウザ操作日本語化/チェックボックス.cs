@@ -9,7 +9,7 @@ namespace ブラウザ操作日本語化;
 /// <param name="by">チェックボックスのBy</param>
 public class チェックボックス : フォーム要素
 {
-    private チェックボックス(Web要素 要素) : base(要素)
+    private チェックボックス(画面要素インターフェース 要素) : base(要素)
     {
     }
 

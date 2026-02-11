@@ -43,17 +43,17 @@ public class Web要素 : 画面要素インターフェース
 
     public bool 選択されている => element.Selected;
 
-    public IList<Web要素> 選択肢のリスト()
+    public IList<画面要素インターフェース> 選択肢のリスト()
     {
         var selectElement = new SelectElement(element);
         return [.. selectElement.Options.Select(opt => new Web要素(opt))];
     }
-    public IList<Web要素> 全ての選択された選択肢()
+    public IList<画面要素インターフェース> 全ての選択された選択肢()
     {
         var selectElement = new SelectElement(element);
         return [.. selectElement.AllSelectedOptions.Select(opt => new Web要素(opt))];
     }
-    public Web要素 選択された選択肢
+    public 画面要素インターフェース 選択された選択肢
     {
         get
         {
@@ -78,7 +78,7 @@ public class Web要素 : 画面要素インターフェース
         var selectElement = new SelectElement(element);
         selectElement.SelectByIndex(index);
     }
-    public Web要素 ラップされた要素
+    public 画面要素インターフェース ラップされた要素
     {
         get
         {
