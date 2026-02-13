@@ -25,6 +25,8 @@ public class Web要素 : 画面要素インターフェース
     }
 
     public string テキスト => element.Text;
+    public String 入力文字列 => element.GetAttribute("value") ?? String.Empty;
+    public String オプションの表示文字列 => element.Text;
 
     public void クリアする()
     {
@@ -42,6 +44,7 @@ public class Web要素 : 画面要素インターフェース
     }
 
     public bool 選択されている => element.Selected;
+    public bool チェックされている => element.Selected;
 
     public IList<画面要素インターフェース> 選択肢のリスト()
     {
@@ -53,7 +56,7 @@ public class Web要素 : 画面要素インターフェース
         var selectElement = new SelectElement(element);
         return [.. selectElement.AllSelectedOptions.Select(opt => new Web要素(opt))];
     }
-    public 画面要素インターフェース 選択された選択肢
+    public 画面要素インターフェース? 選択された選択肢
     {
         get
         {

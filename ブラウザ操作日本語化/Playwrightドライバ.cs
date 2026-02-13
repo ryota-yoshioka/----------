@@ -35,7 +35,7 @@ public class Playwrightドライバ : ドライバーインターフェース, �
     }
     public 画面要素インターフェース Nameで要素を探す(string name)
     {
-        return new Playwright要素(ページ.Locator($"name='{name}'"));
+        return new Playwright要素(ページ.Locator($"[name='{name}']"));
     }
     public 画面要素インターフェース TagNameで要素を探す(string tagName)
     {

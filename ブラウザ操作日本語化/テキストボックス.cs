@@ -36,6 +36,6 @@ public class テキストボックス : フォーム要素
     public String? 文字列
     {
         set { インターフェース.キー入力を送る(value!); }
-        get { return インターフェース.属性を取得する("value"); }
+        get { return インターフェース.入力文字列; }
     }
 }

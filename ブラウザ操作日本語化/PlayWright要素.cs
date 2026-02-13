@@ -21,7 +21,10 @@ public class Playwright要素 : 画面要素インターフェース
         element.ClickAsync().Wait();
     }
 
-    public string テキスト => element.TextContentAsync().Result!;
+    public string テキスト => element.InnerTextAsync().Result!;
+    public String 入力文字列 => element.InputValueAsync().Result;
+    public String オプションの表示文字列 => element.TextContentAsync().Result ?? string.Empty;
+
 
     public void クリアする()
     {
@@ -38,7 +41,8 @@ public class Playwright要素 : 画面要素インターフェース
         return element.GetAttributeAsync(attributeName).Result;
     }
 
-    public bool 選択されている => element.IsCheckedAsync().Result;
+    public bool 選択されている => (element.GetAttributeAsync("selected").Result != null);
+    public bool チェックされている => element.IsCheckedAsync().Result;
 
     public IList<画面要素インターフェース> 選択肢のリスト()
     {
@@ -48,11 +52,17 @@ public class Playwright要素 : 画面要素インターフェース
     {
         return [.. this.選択肢のリスト().Where(_ => _.選択されている)];
     }
-    public 画面要素インターフェース 選択された選択肢
+    public 画面要素インターフェース? 選択された選択肢
     {
         get
         {
-            return this.選択肢のリスト().First(_ => _.選択されている);
+            var inputValue = element.InputValueAsync().Result;
+            var selectedOption = element.Locator($"option[value='{inputValue}']");
+            if (selectedOption != null)
+            {
+                return new Playwright要素(selectedOption);
+            }
+            return null;
         }
     }
     public bool 複数選択可能 => element.GetAttributeAsync("multiple").Result != null;
@@ -63,7 +73,7 @@ public class Playwright要素 : 画面要素インターフェース
     }
     public void 値で選択する(string value)
     {
-        element.SelectOptionAsync([value]).Wait();
+        element.SelectOptionAsync(value).Wait();
     }
     public void 順番で選択する(int index)
     {

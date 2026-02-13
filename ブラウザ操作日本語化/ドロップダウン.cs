@@ -44,11 +44,16 @@ public class ドロップダウン : フォーム要素
         }
     }
 
-    public オプション 選択されたオプション
+    public オプション? 選択されたオプション
     {
         get
         {
-            return new オプション(this, インターフェース.選択された選択肢);
+            var 要素 = インターフェース.選択された選択肢;
+            if (要素 is null)
+            {
+                return null;
+            }
+            return new オプション(this, 要素);
         }
     }
 
